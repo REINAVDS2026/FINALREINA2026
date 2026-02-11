@@ -18,12 +18,12 @@ document.getElementById("votingForm").addEventListener("submit", function(event)
   const voto = seleccion.value;
 
   const urls = [
-    //"https://script.google.com/macros/s/AKfycbzFJIq4VBJBcgHQpetnpDZr2F-mODx2hTQgfeUShrCLLbeLHH7xFQe8Kn7-TSfAxMmL/exec",
-    //"https://script.google.com/macros/s/AKfycbwhFm0Lwhh_nY8HjCKGnJR3YkvGYjv_xAvWdcI-mAQTyDfTwPPHgd0bhxbSFF8_xtWmlQ/exec",
-    //"https://script.google.com/macros/s/AKfycbxfBUHiSiQSA1SOihsZkPbfMJocybxTEJu8q6abRdW8B8hhdPpE_-rjgovoPdf37VKh/exec",
+    "https://script.google.com/macros/s/AKfycbzFJIq4VBJBcgHQpetnpDZr2F-mODx2hTQgfeUShrCLLbeLHH7xFQe8Kn7-TSfAxMmL/exec",
+    "https://script.google.com/macros/s/AKfycbwhFm0Lwhh_nY8HjCKGnJR3YkvGYjv_xAvWdcI-mAQTyDfTwPPHgd0bhxbSFF8_xtWmlQ/exec",
+    "https://script.google.com/macros/s/AKfycbxfBUHiSiQSA1SOihsZkPbfMJocybxTEJu8q6abRdW8B8hhdPpE_-rjgovoPdf37VKh/exec",
     "https://script.google.com/macros/s/AKfycbwyufEDvao79wBOma_FN3WW88Isx_Ni2ikautII-1dMI0RQP5FJvLZSG4qnbO4hvTMuiw/exec",
-    //"https://script.google.com/macros/s/AKfycbwfXjNXc1tIqOIZdycxKGzBytIcM4z2KKHJDbbYEAZrPq4GAedAwvVU2uHkPZhewAix/exec",
-    //"https://script.google.com/macros/s/AKfycbyZ6Tnj1TbSkhnEfy9buKVVzjnSwncwesPr2tGiaEYdLRoK-sYFSyKVV13ZoTjNB-jq/exec"
+    "https://script.google.com/macros/s/AKfycbwfXjNXc1tIqOIZdycxKGzBytIcM4z2KKHJDbbYEAZrPq4GAedAwvVU2uHkPZhewAix/exec",
+    "https://script.google.com/macros/s/AKfycbyZ6Tnj1TbSkhnEfy9buKVVzjnSwncwesPr2tGiaEYdLRoK-sYFSyKVV13ZoTjNB-jq/exec"
   ];
 
   const url = urls[Math.floor(Math.random() * urls.length)];
@@ -38,6 +38,7 @@ document.getElementById("votingForm").addEventListener("submit", function(event)
   document.cookie = COOKIE_NAME + "=true; max-age=" + (60 * 60 * 24 * 30)+ "; path=/"; // 30 días
   window.location.href = "gracias.html";
 });
+
 
 
 
