@@ -32,7 +32,7 @@ document.getElementById("votingForm").addEventListener("submit", function(event)
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
     body: `voto=${encodeURIComponent(voto)}`
-  });
+  })
 
   .then(response => response.json())
   .then(data => {
@@ -53,6 +53,7 @@ document.getElementById("votingForm").addEventListener("submit", function(event)
   });
 
 });
+
 
 
 
