@@ -19,8 +19,7 @@ document.getElementById("votingForm").addEventListener("submit", function(event)
 
   const seleccion = document.querySelector('input[name="candidata"]:checked');
   if (!seleccion) return alert("Selecciona una candidata.");
-  return;
-  }
+  
     // Desactivar botón inmediatamente
   boton.disabled = true;
   boton.innerText = "Enviando voto...";                                                    
@@ -67,3 +66,4 @@ document.getElementById("votingForm").addEventListener("submit", function(event)
   });
 
 });
+
