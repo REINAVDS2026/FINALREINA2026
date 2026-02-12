@@ -9,24 +9,31 @@
 body{
     margin:0;
     font-family: Arial, sans-serif;
-    background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
-    color:white;
+    background:#ffffff;
     text-align:center;
 }
 
+/* ===== BANNERS ===== */
+.banner-top img,
+.banner-bottom img{
+    width:100%;
+    height:auto;
+    display:block;
+}
+
+/* ===== CONTENIDO CENTRAL ===== */
+.contenido{
+    padding:60px 20px;
+}
+
 .loader{
-    border:6px solid rgba(255,255,255,0.2);
-    border-top:6px solid #ffffff;
+    border:6px solid #f3f3f3;
+    border-top:6px solid #e91e63;
     border-radius:50%;
-    width:60px;
-    height:60px;
+    width:70px;
+    height:70px;
     animation:spin 1s linear infinite;
-    margin-bottom:20px;
+    margin:0 auto 25px auto;
 }
 
 @keyframes spin{
@@ -34,42 +41,135 @@ body{
     100%{ transform:rotate(360deg); }
 }
 
+h2{
+    margin:0;
+    font-size:22px;
+}
+
+p{
+    color:#555;
+    margin-top:10px;
+}
+
+/* ===== BARRA DE PROGRESO ===== */
+.progress-container{
+    width:80%;
+    max-width:400px;
+    background:#eee;
+    border-radius:20px;
+    margin:30px auto;
+    overflow:hidden;
+}
+
+.progress-bar{
+    height:12px;
+    width:0%;
+    background:#e91e63;
+    transition:width 0.3s ease;
+}
+
+/* ===== SPONSOR ===== */
 .sponsor{
-    position:absolute;
-    bottom:40px;
-    background:white;
-    padding:15px 30px;
+    margin-top:50px;
+    background:#f9f9f9;
+    padding:20px;
     border-radius:12px;
-    color:black;
-    font-weight:bold;
-    box-shadow:0 5px 20px rgba(0,0,0,0.4);
+    display:inline-block;
+    box-shadow:0 4px 15px rgba(0,0,0,0.08);
 }
 
 .sponsor img{
     max-width:200px;
     margin-top:10px;
 }
+
+/* ===== MENSAJE ÉXITO ===== */
+.success{
+    display:none;
+    color:green;
+    font-weight:bold;
+    margin-top:15px;
+    font-size:18px;
+}
+
 </style>
 </head>
 
 <body>
 
-<div class="loader"></div>
+<!-- Banner superior -->
+<div class="banner-top">
+    <img src="banner-superior.jpg" alt="Banner superior">
+</div>
 
-<h2>Enviando voto...</h2>
-<p>Por favor espera unos segundos</p>
+<div class="contenido">
 
-<div class="sponsor">
-    Patrocinador Oficial
-    <br>
-    <img src="sponsor.jpg" alt="Sponsor">
+    <div class="loader"></div>
+
+    <h2>Enviando voto...</h2>
+    <p>Por favor espera unos segundos</p>
+
+    <!-- Barra progreso -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <div class="success" id="successMessage">
+        ✔️ Voto recibido correctamente
+    </div>
+
+    <!-- Sponsor -->
+    <div class="sponsor">
+        <strong>Patrocinador Oficial</strong>
+        <br>
+        <img src="sponsor.jpg" alt="Sponsor">
+    </div>
+
+</div>
+
+<!-- Banner inferior -->
+<div class="banner-bottom">
+    <img src="banner-inferior.jpg" alt="Banner inferior">
 </div>
 
 <script>
-// Esperar 5 segundos y redirigir
-setTimeout(function(){
-    window.location.href = "gracias.html";
-}, 5000);
+
+// ===== CONFIGURACIÓN =====
+const ETAPA = 203;
+const COOKIE_NAME = `votado_2026_etapa${ETAPA}`;
+
+// ===== BLOQUEAR BOTÓN ATRÁS =====
+history.pushState(null, null, location.href);
+window.onpopstate = function () {
+    history.go(1);
+};
+
+// ===== SI YA VOTÓ → REDIRIGIR A CERRADO =====
+if (!document.cookie.includes(COOKIE_NAME + "=true")) {
+    window.location.href = "cerrado.html";
+}
+
+// ===== ANIMACIÓN DE PROGRESO =====
+let progress = 0;
+let bar = document.getElementById("progressBar");
+let success = document.getElementById("successMessage");
+
+let interval = setInterval(function(){
+    progress += 4; // velocidad de carga
+    bar.style.width = progress + "%";
+
+    if(progress >= 100){
+        clearInterval(interval);
+
+        document.querySelector(".loader").style.display = "none";
+        success.style.display = "block";
+
+        setTimeout(function(){
+            window.location.href = "gracias.html";
+        }, 1200);
+    }
+}, 120);
+
 </script>
 
 </body>
