@@ -51,7 +51,7 @@ p{
     margin-top:10px;
 }
 
-/* ===== BARRA DE PROGRESO ===== */
+/* ===== BARRA ===== */
 .progress-container{
     width:80%;
     max-width:400px;
@@ -83,7 +83,6 @@ p{
     margin-top:10px;
 }
 
-/* ===== MENSAJE ÉXITO ===== */
 .success{
     display:none;
     color:green;
@@ -97,7 +96,6 @@ p{
 
 <body>
 
-<!-- Banner superior -->
 <div class="banner-top">
     <img src="banner-superior.jpg" alt="Banner superior">
 </div>
@@ -109,7 +107,6 @@ p{
     <h2>Enviando voto...</h2>
     <p>Por favor espera unos segundos</p>
 
-    <!-- Barra progreso -->
     <div class="progress-container">
         <div class="progress-bar" id="progressBar"></div>
     </div>
@@ -118,7 +115,6 @@ p{
         ✔️ Voto recibido correctamente
     </div>
 
-    <!-- Sponsor -->
     <div class="sponsor">
         <strong>Patrocinador Oficial</strong>
         <br>
@@ -127,48 +123,61 @@ p{
 
 </div>
 
-<!-- Banner inferior -->
 <div class="banner-bottom">
     <img src="banner-inferior.jpg" alt="Banner inferior">
 </div>
 
 <script>
 
-// ===== CONFIGURACIÓN =====
-const ETAPA = 203;
-const COOKIE_NAME = `votado_2026_etapa${ETAPA}`;
+// ===============================
+// 1️⃣ VALIDAR SI SISTEMA CERRADO
+// ===============================
 
-// ===== BLOQUEAR BOTÓN ATRÁS =====
-history.pushState(null, null, location.href);
-window.onpopstate = function () {
-    history.go(1);
-};
+fetch("config.json")
+.then(res => res.json())
+.then(config => {
 
-// ===== SI YA VOTÓ → REDIRIGIR A CERRADO =====
-if (!document.cookie.includes(COOKIE_NAME + "=true")) {
-    window.location.href = "cerrado.html";
-}
-
-// ===== ANIMACIÓN DE PROGRESO =====
-let progress = 0;
-let bar = document.getElementById("progressBar");
-let success = document.getElementById("successMessage");
-
-let interval = setInterval(function(){
-    progress += 4; // velocidad de carga
-    bar.style.width = progress + "%";
-
-    if(progress >= 100){
-        clearInterval(interval);
-
-        document.querySelector(".loader").style.display = "none";
-        success.style.display = "block";
-
-        setTimeout(function(){
-            window.location.href = "gracias.html";
-        }, 1200);
+    if(!config.votacion_abierta){
+        window.location.href = "cerrado.html";
+        return;
     }
-}, 120);
+
+    iniciarCarga();
+
+})
+.catch(() => {
+    // si falla el json, permitir continuar
+    iniciarCarga();
+});
+
+
+// ===============================
+// 2️⃣ ANIMACIÓN + REDIRECCIÓN
+// ===============================
+
+function iniciarCarga(){
+
+    let progress = 0;
+    let bar = document.getElementById("progressBar");
+    let success = document.getElementById("successMessage");
+
+    let interval = setInterval(function(){
+        progress += 5;
+        bar.style.width = progress + "%";
+
+        if(progress >= 100){
+            clearInterval(interval);
+
+            document.querySelector(".loader").style.display = "none";
+            success.style.display = "block";
+
+            setTimeout(function(){
+                window.location.href = "gracias.html";
+            }, 1200);
+        }
+    }, 120);
+
+}
 
 </script>
 
