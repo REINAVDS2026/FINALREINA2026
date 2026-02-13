@@ -37,30 +37,17 @@ document.getElementById("votingForm").addEventListener("submit", function(event)
 
   const url = urls[Math.floor(Math.random() * urls.length)];
 
-  fetch(url, {
+ fetch(url, {
   method: "POST",
+  mode: "no-cors",
   headers: { "Content-Type": "application/x-www-form-urlencoded" },
   body: `voto=${encodeURIComponent(voto)}`
-})
-.then(response => {
-
-  if (!response.ok) {
-    throw new Error("Error en servidor");
-  }
-
-  // Guardar cookie
-  document.cookie = COOKIE_NAME + "=true; max-age=" + (60 * 60 * 24 * 30) + "; path=/";
-
-  // Redirigir
-  window.location.href = "cargando.html";
-
-})
-.catch(error => {
-  console.error("Error:", error);
-  boton.disabled = false;
-  boton.innerText = "Enviar voto";
-  alert("Error de conexión. Intenta nuevamente.");
 });
+
+document.cookie = COOKIE_NAME + "=true; max-age=" + (60 * 60 * 24 * 30) + "; path=/";
+window.location.href = "cargando.html";
+
+
 
 
 
