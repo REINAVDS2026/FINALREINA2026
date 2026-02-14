@@ -69,8 +69,4 @@ document.getElementById("votingForm").addEventListener("submit", function(event)
   alert("Error de conexión. Intenta nuevamente.");
 });
 
-
-
-
-
-
+});
