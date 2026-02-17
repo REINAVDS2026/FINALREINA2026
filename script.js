@@ -1,5 +1,5 @@
 // ===== CONFIGURACIÓN DE ETAPA =====
-const ETAPA = 207; // cambia a 2 o 3 según la etapa
+const ETAPA = 208; // cambia a 2 o 3 según la etapa
 const COOKIE_NAME = `votado_2026_etapa${ETAPA}`;
 // =================================
 
@@ -70,3 +70,4 @@ document.getElementById("votingForm").addEventListener("submit", function(event)
 });
 
 });
+
