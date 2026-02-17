@@ -10,7 +10,7 @@ body {
   width: 100%;
   max-height: 200px;
   object-fit: cover;
-  margin-bottom: 50px;
+  margin-bottom: 100px;
 }
 
 h1 {
@@ -106,5 +106,6 @@ button {
 .sponsor-pequeno {
     width: 140px;
 }
+
 
 
