@@ -50,7 +50,7 @@ h1 {
 button {
   background-color: #8b004c;
   color: white;
-  padding: 20px 45px;
+  padding: 30px 55px;
   border: none;
   border-radius: 12px;
   font-size: 22px;
@@ -58,6 +58,9 @@ button {
   cursor: pointer;
   box-shadow: 0 6px 20px rgba(139, 0, 76, 0.4);
   transition: all 0.2s ease;
+  width: 80%;
+  max-width: 400px;
+  margin-top: 40px;
 }
 
 button:hover {
@@ -114,6 +117,7 @@ button:hover {
 .sponsor-pequeno {
     width: 140px;
 }
+
 
 
 
