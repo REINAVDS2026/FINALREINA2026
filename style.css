@@ -33,10 +33,15 @@ h1 {
   cursor: pointer;
 }
 
+.candidates input[type="radio"] {
+  margin-top: 10px;
+}
+
 .nombre {
-  font-size: 20px;
-  font-weight: 700;
-  margin-top: 5px;
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 8px;
+  transition: all 0.3s ease;
 }
 
 .candidates img {
@@ -49,8 +54,15 @@ h1 {
   transition: border-color 0.3s;
 }
 
-.candidates input[type="radio"] {
-  margin-top: 10px;
+/* 🔥 EFECTO CUANDO SE SELECCIONA */
+.candidates input[type="radio"]:checked + img {
+  border: 3px solid #8b004c;
+  transform: scale(1.05);
+}
+
+.candidates input[type="radio"]:checked + img + .nombre {
+  color: #8b004c;
+  font-weight: 700;
 }
 
 button {
@@ -123,6 +135,7 @@ button:hover {
 .sponsor-pequeno {
     width: 140px;
 }
+
 
 
 
