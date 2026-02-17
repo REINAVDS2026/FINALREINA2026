@@ -13,7 +13,7 @@ body {
 }
 
 h1 {
-  margin-top: 40px;
+  margin-top: 60px;
   margin-bottom: 20px;
   color: #8b004c;
 }
@@ -50,11 +50,19 @@ h1 {
 button {
   background-color: #8b004c;
   color: white;
-  padding: 15px 30px;
+  padding: 20px 45px;
   border: none;
-  border-radius: 10px;
-  font-size: 18px;
+  border-radius: 12px;
+  font-size: 22px;
+  font-weight: 700;
   cursor: pointer;
+  box-shadow: 0 6px 20px rgba(139, 0, 76, 0.4);
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(139, 0, 76, 0.5);
 }
 
 .sponsors-section {
@@ -106,6 +114,7 @@ button {
 .sponsor-pequeno {
     width: 140px;
 }
+
 
 
 
