@@ -28,6 +28,7 @@ h1 {
 
 .candidates label {
   display: flex;
+  flex: 0 0 auto;
   flex-direction: column;
   align-items: center;
   cursor: pointer;
@@ -154,6 +155,7 @@ button:hover {
 .sponsor-pequeno {
     width: 140px;
 }
+
 
 
 
