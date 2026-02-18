@@ -140,17 +140,17 @@ h1 {
 
 /* 🔥 CUANDO SE SELECCIONA */
 .candidates input[type="radio"]:checked + img {
-  border: 5px solid #ff2da3;
+  border: 5px solid #f5c542;
   box-shadow: 
-    0 0 12px #ff2da3,
-    0 0 25px #ff2da3,
+    0 0 12px #f5c542,
+    0 0 25px #f5c542,
     0 0 40px rgba(255, 45, 163, 0.7);
   animation: pulse 1.2s ease-in-out infinite;
 }
 
 /* Nombre seleccionado */
 .candidates input[type="radio"]:checked + img + .nombre {
-  color: #ff2da3;
+  color: #f5c542;
   font-weight: 800;
   font-size: 22px;
   text-shadow: 
@@ -230,6 +230,7 @@ button:hover {
 .sponsor-pequeno {
     width: 140px;
 }
+
 
 
 
