@@ -4,6 +4,7 @@ body {
   padding: 0;
   text-align: center;
   min-height: 100vh;
+  min-height: 100dvh;
   color: white;
   overflow-x: hidden;
 
@@ -230,5 +231,6 @@ button:hover {
 .sponsor-pequeno {
     width: 140px;
 }
+
 
 
