@@ -1,9 +1,32 @@
 body {
   font-family: sans-serif;
-  background-color: #fafafa;
-  text-align: center;
   margin: 0;
   padding: 0;
+  text-align: center;
+  min-height: 100vh;
+
+  /* Fondo degradado principal */
+  background: radial-gradient(circle at center, 
+              #ff3ca6 0%, 
+              #c4008b 35%, 
+              #7a00a8 70%, 
+              #3a0057 100%);
+  
+  background-attachment: fixed;
+  color: white;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: -30%;
+  left: -30%;
+  width: 160%;
+  height: 160%;
+  background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
 }
 
 .banner {
@@ -155,6 +178,7 @@ button:hover {
 .sponsor-pequeno {
     width: 140px;
 }
+
 
 
 
