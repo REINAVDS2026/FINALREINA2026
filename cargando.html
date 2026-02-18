@@ -8,12 +8,65 @@
 
 <style>
 body{
-    margin:0;
-    font-family: Arial, sans-serif;
-    background:#ffffff;
-    text-align:center;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    min-height: 100vh;
+    color: white;
+    overflow-x: hidden;
+
+    background: linear-gradient(135deg,
+                #1a001f,
+                #3a0057,
+                #7a00a8,
+                #ff2da3,
+                #7a00a8,
+                #3a0057);
+    background-size: 300% 300%;
+    animation: fondoElegante 18s ease infinite;
 }
 
+@keyframes fondoElegante {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  pointer-events: none;
+  background-image: radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px);
+  background-size: 3px 3px;
+  animation: partículas 60s linear infinite;
+  z-index: 0;
+}
+
+@keyframes partículas {
+  from { transform: translateY(0); }
+  to { transform: translateY(-200px); }
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(255,255,255,0.03),
+    rgba(255,255,255,0.03) 2px,
+    transparent 2px,
+    transparent 40px
+  );
+  z-index: 0;
+}
+    
 /* ===== BANNERS ===== */
 .banner-top img,
 .banner-bottom img{
