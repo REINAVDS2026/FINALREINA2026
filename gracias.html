@@ -43,17 +43,113 @@
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
-    }   
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      width: 200%;
+      height: 200%;
+      top: -50%;
+      left: -50%;
+      pointer-events: none;
+      background-image: radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px);
+      background-size: 3px 3px;
+      animation: partículas 60s linear infinite;
+      z-index: 0;
+    }
+
+    @keyframes partículas {
+      from { transform: translateY(0); }
+      to { transform: translateY(-200px); }
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background: repeating-linear-gradient(
+        45deg,
+        rgba(255,255,255,0.03),
+        rgba(255,255,255,0.03) 2px,
+        transparent 2px,
+        transparent 40px
+      );
+      z-index: 0;
+    }    
+
 
     img.banner {
       width: 100%;
-      display: block;
+      max-height: 200px;
+      object-fit: cover;
+      position: relative;
+      z-index: 2;
+    }
+
+    .banner::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle, rgba(255,45,163,0.3), transparent 70%);
+      pointer-events: none;
     }
 
     .mensaje {
       padding: 40px 20px;
       font-size: 1.4em;
-      color: #333;
+      color: white;
+    }
+
+    .sponsors-section {
+        margin-top: 60px;
+        padding: 40px 20px;
+        text-align: center;
+    }
+
+    .titulo-sponsors {
+        margin-bottom: 30px;
+        font-size: 22px;
+        font-weight: bold;
+    }
+
+    .piramide-sponsors {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+    }
+
+    .fila {
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+        flex-wrap: wrap;
+    }
+
+    .sponsor img {
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+        transition: transform 0.3s ease;
+    }
+
+    .sponsor img:hover {
+        transform: scale(1.05);
+    }
+
+    /* Tamaños */
+    .sponsor-grande {
+        width: 320px;
+    }
+
+    .sponsor-mediano {
+        width: 200px;
+    }
+
+    .sponsor-pequeno {
+        width: 140px;
     }
 
     .espaciado-banner2 {
@@ -110,6 +206,7 @@
   <img src="banner2.jpg" alt="Banner inferior" class="banner espaciado-banner2">
 </body>
 </html>
+
 
 
 
