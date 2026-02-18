@@ -152,7 +152,7 @@ h1 {
 .candidates input[type="radio"]:checked + img + .nombre {
   color: #FFD700;
   font-weight: 800;
-  font-size: 22px;
+  font-size: 24px;
   text-shadow: 
     0 0 10px rgba(255, 45, 163, 0.8);
 }
@@ -230,6 +230,7 @@ button:hover {
 .sponsor-pequeno {
     width: 140px;
 }
+
 
 
 
