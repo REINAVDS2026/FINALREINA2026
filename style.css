@@ -140,7 +140,7 @@ h1 {
 
 @keyframes pulseTexto {
   0% { transform: scale(1); }
-  50% { transform: scale(1.12); }
+  50% { transform: scale(1.15); }
   100% { transform: scale(1); }
 }
 
@@ -236,6 +236,7 @@ button:hover {
 .sponsor-pequeno {
     width: 140px;
 }
+
 
 
 
