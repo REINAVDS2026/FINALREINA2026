@@ -7,15 +7,71 @@
 
   <style>
     body {
-      font-family: Arial, sans-serif;
-      text-align: center;
+      font-family: 'Poppins', sans-serif;
       margin: 0;
       padding: 0;
+      text-align: center;
+      min-height: 100vh;
+      color: white;
+      overflow-x: hidden;
+
+      background: linear-gradient(135deg,
+                 #1a001f,
+                 #3a0057,
+                 #7a00a8,
+                 #ff2da3,
+                 #7a00a8,
+                 #3a0057);
+      background-size: 300% 300%;
+      animation: fondoElegante 18s ease infinite;
     }
+
+    @keyframes fondoElegante {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      width: 200%;
+      height: 200%;
+      top: -50%;
+      left: -50%;
+      pointer-events: none;
+      background-image: radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px);
+      background-size: 3px 3px;
+      animation: partículas 60s linear infinite;
+      z-index: 0;
+    }
+
+    @keyframes partículas {
+      from { transform: translateY(0); }
+      to { transform: translateY(-200px); }
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background: repeating-linear-gradient(
+        45deg,
+        rgba(255,255,255,0.03),
+        rgba(255,255,255,0.03) 2px,
+        transparent 2px,
+        transparent 40px
+      );
+      z-index: 0;
+    } 
 
     img.banner {
       width: 100%;
-      display: block;
+      max-height: 200px;
+      object-fit: cover;
+      position: relative;
+      z-index: 2;
     }
 
     .mensaje {
@@ -25,6 +81,56 @@
       font-weight: bold;
     }
 
+    .sponsors-section {
+        margin-top: 5px;
+        padding: 20px 20px 10px 20px;
+        text-align: center;
+    }
+
+    .titulo-sponsors {
+        margin-bottom: 10px;
+        font-size: 22px;
+        font-weight: bold;
+    }
+
+    .piramide-sponsors {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+    }
+
+    .fila {
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+        flex-wrap: wrap;
+    }
+
+    .sponsor img {
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+        transition: transform 0.3s ease;
+    }
+
+    .sponsor img:hover {
+        transform: scale(1.05);
+    }
+
+    /* Tamaños */
+    .sponsor-grande {
+        width: 200px;
+    }
+
+    .sponsor-mediano {
+        width: 140px;
+    }
+
+    .sponsor-pequeno {
+        width: 100px;
+    }
+    
     .espaciado-banner2 {
       margin-top: 80px;
     }
@@ -38,6 +144,43 @@
     <p>En unos minutos anunciaremos a la ganadora. Gracias por tu interés.</p>
   </div>
 
+  <section class="sponsors-section">
+
+  <h2 class="titulo-sponsors">Patrocinadores Oficiales</h2>
+
+  <div class="piramide-sponsors">
+
+    <!-- Sponsor principal (Grande) -->
+    <div class="sponsor sponsor-grande">
+      <img src="sponsor.jpg" alt="Sponsor Principal">
+    </div>
+
+    <!-- Nivel medio (2) -->
+    <div class="fila">
+      <div class="sponsor sponsor-mediano">
+        <img src="sponsor2.jpg" alt="Sponsor 2">
+      </div>
+      <div class="sponsor sponsor-mediano">
+        <img src="sponsor3.jpg" alt="Sponsor 3">
+      </div>
+    </div>
+
+    <!-- Nivel inferior (3) -->
+    <div class="fila">
+      <div class="sponsor sponsor-pequeno">
+        <img src="sponsor4.jpg" alt="Sponsor 4">
+      </div>
+      <div class="sponsor sponsor-pequeno">
+        <img src="sponsor5.jpg" alt="Sponsor 5">
+      </div>
+      <div class="sponsor sponsor-pequeno">
+        <img src="sponsor6.jpg" alt="Sponsor 6">
+      </div>
+      </div>
+    </div>
+  </section>
+
   <img src="banner2.jpg" alt="Banner inferior" class="banner espaciado-banner2">
 </body>
 </html>
+
