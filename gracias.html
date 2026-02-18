@@ -20,11 +20,30 @@
 
   <style>
     body {
-      font-family: Arial, sans-serif;
-      text-align: center;
+      font-family: 'Poppins', sans-serif;
       margin: 0;
       padding: 0;
+      text-align: center;
+      min-height: 100vh;
+      color: white;
+      overflow-x: hidden;
+
+      background: linear-gradient(135deg,
+                 #1a001f,
+                 #3a0057,
+                 #7a00a8,
+                 #ff2da3,
+                 #7a00a8,
+                 #3a0057);
+      background-size: 300% 300%;
+      animation: fondoElegante 18s ease infinite;
     }
+
+    @keyframes fondoElegante {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }   
 
     img.banner {
       width: 100%;
@@ -91,6 +110,7 @@
   <img src="banner2.jpg" alt="Banner inferior" class="banner espaciado-banner2">
 </body>
 </html>
+
 
 
 
