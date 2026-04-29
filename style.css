@@ -90,8 +90,8 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 25px;
-  margin: 40px 20px;
+  max-width: 1000px;
+  margin: auto;
 }
 
 .candidates label {
@@ -101,6 +101,7 @@ h1 {
   align-items: center;
   cursor: pointer;
   position: relative;
+  width: 160px;
 }
 
 .candidates input[type="radio"] {
