@@ -203,20 +203,20 @@ button:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px;
+    gap: 25px;
 }
 
 .fila {
     display: flex;
     justify-content: center;
-    gap: 8px;
-    width: 100%;
+    gap: 25px;
+    flex-wrap: wrap;
 }
 
 .sponsor img {
     width: 100%;
     height: auto;
-    border-radius: 10px;
+    border-radius: 12px;
     transition: transform 0.3s ease;
 }
 
@@ -226,21 +226,13 @@ button:hover {
 
 /* Tamaños */
 .sponsor-grande {
-    width: 55%;
-}
-
-.fila-mediana {
-    flex-wrap: nowrap;
+    width: 320px;
 }
 
 .sponsor-mediano {
-    width: 22%;
-}
-
-.fila-pequena {
-    flex-wrap: nowrap;
+    width: 200px;
 }
 
 .sponsor-pequeno {
-    width: 165;
+    width: 140px;
 }
