@@ -121,6 +121,7 @@ h1 {
   box-sizing: border-box;
   transition: all 0.3s ease;
   aspect-ratio: 3/4;
+  object-position: top;
 }
 
 .candidates label:hover img {
