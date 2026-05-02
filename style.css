@@ -87,14 +87,11 @@ h1 {
 }
 
 .candidates {
-  width:100%;
-  overflow:visible;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  max-width: 170px;
+  max-width: 1000px;
   margin: auto;
-  height: auto;
 }
 
 .candidates label {
