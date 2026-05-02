@@ -1,5 +1,5 @@
 // ===== CONFIGURACIÓN DE ETAPA =====
-const ETAPA = 208; // cambia a 2 o 3 según la etapa
+const ETAPA = 40; // cambia a 2 o 3 según la etapa (Inicia en 40 y despues cambia a mas)
 const COOKIE_NAME = `votado_2026_etapa${ETAPA}`;
 // =================================
 
