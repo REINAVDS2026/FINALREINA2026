@@ -87,6 +87,14 @@
           0 0 20px rgba(255,255,255,0.5),
           0 0 40px rgba(255,255,255,0.3);
     }
+    
+    #contador {
+      margin-top: 20px;
+      font-size: 32px;
+      font-weight: bold;
+      color: #7a00a8;
+      text-shadow: 0 0 10px rgba(122,0,168,0.4);
+    }
 
     .sponsors-section {
         margin-top: 60px;
@@ -159,6 +167,7 @@
   <div class="mensaje">
     <h1>🛑 Se ha cerrado la votación 🛑</h1>
     <p>Solo podrás votar durante el certamen. Gracias por tu interés. Reapertura de votaciones 14 de mayo a las 12:00 pm.</p>
+    <div id="contador"></div>
     <p>Querido votante queremos agradecer tu participación, gracias a ti juntamos +2000 votos en esta segunda etapa. Te invitamos a seguir votando;) </p>
   </div>
 
@@ -214,5 +223,48 @@
   <div class="footer">
     A LINK production powered by JGM
   </div>
+  <script>
+
+  // Fecha y hora estimada de reapertura
+
+  const fechaReapertura = new Date("May 14, 2026 12:00:00").getTime();
+
+  const contador = document.getElementById("contador");
+
+  const intervalo = setInterval(() => {
+
+    const ahora = new Date().getTime();
+
+    const diferencia = fechaReapertura - ahora;
+
+    // Evitar negativos
+
+    if (diferencia <= 0) {
+
+      contador.innerHTML = "🟢 Esperando reapertura de votaciones...";
+
+      clearInterval(intervalo);
+
+      return;
+
+    }
+
+    const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+
+    const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+
+    const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+
+    const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+
+    contador.innerHTML =
+
+      `⏳ Reapertura en:<br>
+
+      ${dias}d ${horas}h ${minutos}m ${segundos}s`;
+
+  }, 1000);
+
+</script>
 </body>
 </html>
