@@ -166,9 +166,8 @@
 
   <div class="mensaje">
     <h1>🛑 Se ha cerrado la votación 🛑</h1>
-    <p>Gracias por tu interés. Reapertura de votaciones durante la GRAN FINAL 16 de mayo a las 07:00 pm.</p>
-    <div id="contador"></div>
-    <p>Querido votante queremos agradecer tu participación, gracias a ti juntamos +6000 votos en esta segunda etapa. Te invitamos a seguir votando;) </p>
+    <p>Gracias por tu interés. En unos minutos anunciaremos a la ganadora.</p>
+    <p>Querido votante queremos agradecer tu participación, gracias a ti juntamos +10,000 votos en esta segunda etapa. Te invitamos a seguir votando;) </p>
   </div>
 
   <section class="sponsors-section">
@@ -223,48 +222,6 @@
   <div class="footer">
     A LINK production powered by JGM
   </div>
-  <script>
-
-  // Fecha y hora estimada de reapertura
-
-  const fechaReapertura = new Date("May 16, 2026 19:00:00").getTime();
-
-  const contador = document.getElementById("contador");
-
-  const intervalo = setInterval(() => {
-
-    const ahora = new Date().getTime();
-
-    const diferencia = fechaReapertura - ahora;
-
-    // Evitar negativos
-
-    if (diferencia <= 0) {
-
-      contador.innerHTML = "🟢 Esperando reapertura de votaciones...";
-
-      clearInterval(intervalo);
-
-      return;
-
-    }
-
-    const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
-
-    const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-
-    const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
-
-    const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
-
-    contador.innerHTML =
-
-      `⏳ Reapertura en:<br>
-
-      ${dias}d ${horas}h ${minutos}m ${segundos}s`;
-
-  }, 1000);
-
-</script>
+  
 </body>
 </html>
